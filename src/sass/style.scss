@@ -1,8 +1,47 @@
 @import 'libs/bootstrap-reboot.min';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,700;1,400&display=swap');
+@import "base/variables";
+@import "base/func";
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+a {
+    color: $fc;
+    &:hover {
+        color: $fc;
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: normal;
+    color: $fc;
+}
+.page {
+    display: grid;
+    overflow: hidden;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+.container {
+    padding: 0 size(200, 10);
+    position: relative;
+}
+
+@import "blocks/header";
+@import "blocks/menu";
+@import "blocks/burger";
+
+@import "blocks/media";

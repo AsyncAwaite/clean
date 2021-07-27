@@ -1,0 +1,36 @@
+.menu {
+  list-style: none;
+  display: flex;
+  font-weight: 700;
+  margin-bottom: 0;
+  &__item {
+    padding: 0 1.5rem;
+    display: inline-block;
+
+  }
+  &__link {
+    color: $fc;
+    display: inline-block;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      opacity: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background-color: $ac;
+      transition: all .3s linear;
+    }
+    &:hover {
+      text-decoration: none;
+      color: #2f3e53;
+      &:before {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
+
+}
