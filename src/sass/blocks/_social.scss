@@ -1,0 +1,18 @@
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__link {
+    display: inline-block;
+    margin: 0 1rem;
+    svg {
+      transition: fill 0.4s linear;
+      &:hover {
+        fill: $ac;
+
+
+      }
+
+    }
+  }
+}

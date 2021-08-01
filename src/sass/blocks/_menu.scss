@@ -4,7 +4,7 @@
   font-weight: 700;
   margin-bottom: 0;
   &__item {
-    padding: 0 1.5rem;
+    margin: 0 1rem;
     display: inline-block;
 
   }
@@ -12,12 +12,13 @@
     color: $fc;
     display: inline-block;
     position: relative;
+    font-size: 1.8rem;
     &:before {
       content: "";
       position: absolute;
       left: 0;
       opacity: 0;
-      bottom: 0;
+      bottom: -5px;
       width: 0;
       height: 2px;
       background-color: $ac;

@@ -1,0 +1,25 @@
+.promo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url('../../img/mainBg.jpg') center center / contain no-repeat;
+  &__wrapper {
+    background-color: rgba(#fff, .4);
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  &__title {
+    font-size: size(52, 30);
+    line-height: size(52, 30);
+    color: $fc;
+    font-weight: 700;
+  }
+  &__subtitle{
+    margin-top: size(30, 15);
+    font-size: size(22, 14);
+    color: $ac;
+    font-weight: 300;
+  }
+}

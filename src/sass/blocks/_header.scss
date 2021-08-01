@@ -2,6 +2,10 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
   display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   justify-content: space-between;
   align-items: center;
   box-shadow: rgba(#000, 0.2) 0px 1px 3px;
@@ -9,17 +13,20 @@
     display: block;
     max-width: 100%;
     img {
-      max-width: 160px;
+      max-width: 200px;
       object-fit: cover;
       display: block;
     }
   }
   &__tel {
-    font-size: size(22, 18);
+    display: inline-block;
+    line-height: 27px;
+    font-size: size(20, 18);
     font-weight: bold;
-    transition: color .3s ease;
+    transition: color .6s linear;
     &:hover {
       color: $ac;
     }
   }
+
 }

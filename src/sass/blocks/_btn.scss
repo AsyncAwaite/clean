@@ -1,0 +1,62 @@
+
+.btn {
+  padding: 2rem 6rem;
+  margin-top: 2rem;
+  font-weight: 700;
+  font-size: size(22, 16);
+  cursor: pointer;
+  background: #ff7547;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  position: relative;
+  transition: .4s ease-in-out;
+  border-radius: 2.5rem;
+  box-shadow: rgba(#000, .2) 0 1px 3px;
+  color: #fff;
+  z-index: 11;
+  &:focus {
+      outline: none;
+      border: transparent;
+  }
+  &:before {
+      content: "";
+      background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .4));
+      height: 100%;
+      width: 5rem;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -7rem;
+      animation: sheen 2s linear infinite;
+      transform: skewX(-45deg) translateX(0);
+      transition: none;
+    }
+  &:hover {
+    
+    background: darken(#ff7547, 5);
+    box-shadow: rgba(#000, .2) 0 3px 5px;
+    &::before{
+      animation: none;
+    }
+  }
+   
+  
+}
+@keyframes sheen {
+0% {
+  transform: skewX(-45deg) translateX(0);
+  opacity: 1;
+}
+50% {
+    opacity: 0;
+}
+100% {
+  transform: skewX(-45deg) translateX(40rem);
+  opacity: 1;
+}
+}
+
