@@ -1,72 +1,36 @@
-// import Swiper from 'swiper';
+
 'use strict';
+import priceCards from './modules/priceCards'
+import generateSlide from './modules/generateSlide';
+import Myslider from './modules/slider';  
+import beforeAfter from './modules/beforeAfter';
+
+
 
 window.addEventListener('DOMContentLoaded', function() {
+    priceCards();
+    generateSlide();
+    Myslider();
+    beforeAfter();
+    const next = document.querySelector('.swiper-button-next');
+    const prev = document.querySelector('.swiper-button-prev');
 
-const burger = document.querySelector('.burger');
-const menu = document.querySelector('.menu');
-const header = document.querySelector('.header');
-const headerNav = header.querySelector('.header__nav')
-const social = document.querySelector('.social');
-const inst = social.lastChild;
-const promo = document.querySelector('.promo');
-const itemBtns = document.querySelectorAll('.item-price__btn');
-
-
-itemBtns.forEach(btn => {
- 
-    btn.addEventListener('click', activeCard);
-    function activeCard() {
-        
-        const content = this.parentNode;
-        const priceList = content.querySelector('.item-price__list')
-        const mainItem = content.parentNode;
-        const itemImg = mainItem.querySelector('.item-price__img');
-        const item = content.parentNode;
-        const itemDescr = item.querySelector('.item-price__descr');
-        if (!this.classList.contains('active')) {
-            this.classList.add('active', 'spin-icon');         
-            mainItem.classList.add('active');
-
-        } else {
-            this.classList.remove('active', 'spin-icon');
-           
-            mainItem.classList.remove('active');
+    next.addEventListener('click', beforeAfter);
+    prev.addEventListener('click', beforeAfter);
+    
    
-           
-        }
-        
-        
-        
-     
-             
 
-    }
-  
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.menu');
+    const header = document.querySelector('.header');
+    const headerNav = header.querySelector('.header__nav')
+    const social = document.querySelector('.social');
+    const inst = social.lastChild;
+    const promo = document.querySelector('.promo');
+    
 
-   
-});
-
-
-// itemBtns.forEach(btn => {
- 
-//     btn.addEventListener('click', function() {
-//        const content = this.parentNode;
-//        const itemImg = content.querySelector('.item-price__img');
-//        const item = content.parentNode;
-//        const itemDescr = item.querySelector('.item-price__descr');
-
-//         this.classList.toggle('active');
-        
-//    });
-// });
-
-burger.addEventListener('click', () => {
-    burger.classList.toggle('burger-opened');
-    menu.classList.toggle('menu-active');
-});
-let screenSize700 = window.matchMedia("(max-width: 576px)");
-window.addEventListener('onresize', resize(screenSize700));
+let screenSize700 = window.matchMedia(`(max-width: 576px)`);
+window.addEventListener('resize', resize(screenSize700));
 
 
 
@@ -82,12 +46,26 @@ function resize (size) {
         menu.appendChild(fragment);
         const promoText = document.createElement('div');
         promoText.classList.add('promo__text');
-        promoText.innerHTML = 'Компания Double Clean предлагает профессиональные услуги химчистки диванов и&nbsp;другой мягкой мебели с&nbsp;выездом к&nbsp;заказчику на&nbsp;дом или в&nbsp;офис. Мы&nbsp;работаем по&nbsp;всему Киеву';
+        promoText.innerHTML = 'Компания Double Clean предлагает профессиональные услуги химчистки диванов и&nbsp;другой мягкой мебели с&nbsp;выездом к&nbsp;заказчику на&nbsp;дом или в&nbsp;офис.';
         promo.appendChild(promoText);
  
         
     }
     
 }
+
+
+
+
+
+
+  
+
+
+burger.addEventListener('click', () => {
+    burger.classList.toggle('burger-opened');
+    menu.classList.toggle('menu-active');
+});
+
 
 });

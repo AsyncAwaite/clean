@@ -2,11 +2,11 @@
 .btn {
   padding: 2rem 6rem;
   margin-top: 2rem;
-  font-weight: 700;
-  font-size: size(22, 16);
+  
+
   cursor: pointer;
   background: #ff7547;
-  display: inline-block;
+  display: inline-flex;
   transition: all 0.2s ease-in-out;
   position: relative;
   overflow: hidden;
@@ -18,6 +18,13 @@
   box-shadow: rgba(#000, .2) 0 1px 3px;
   color: #fff;
   z-index: 11;
+  font-size: size(22, 16);
+  line-height: size(22, 16);
+  font-weight: 700;
+  min-height: rem;
+  justify-content: center;
+  align-items: center;
+  
   &:focus {
       outline: none;
       border: transparent;

@@ -3,12 +3,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url('../../img/mainBg.jpg') center center / contain no-repeat;
+
   &__wrapper {
-    background-color: rgba(#fff, .4);
+    background-color: rgba(#fff, 0.4);
     width: 100%;
     text-align: center;
-    padding: 2rem 0;
   }
   &__title {
     font-size: size(52, 30);
@@ -16,10 +15,16 @@
     color: $fc;
     font-weight: 700;
   }
-  &__subtitle{
+  &__subtitle {
     margin-top: size(30, 15);
     font-size: size(22, 14);
     color: $ac;
     font-weight: 300;
+  }
+  &__bg {
+    background: url("../img/mainBg.jpg") center center / contain no-repeat;
+    width: 100%;
+    height: 100%;
+    margin-top: size(30, 15);
   }
 }
