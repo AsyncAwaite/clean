@@ -1,11 +1,13 @@
 .slider {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 .swiper-container {
   width: 100%;
   height: 100%;
   overflow: visible;
+  padding-bottom: 3.2rem;
 }
 .swiper-slide {
   opacity: 0.4;
@@ -17,13 +19,60 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-  position: static;
-  margin-bottom: 10px;
+  margin-top: 0;
+  width: 50px;
+  height: calc(100% - 3.2rem);
+  background: rgba(#000, .3);
+  border-radius: 0;
+  margin-top: 0;
+  top: 0;
+
+ 
+  color: #fff;
+  &::after, &::before {
+    font-size: 2.5rem;
+    line-height: 5rem;
+    margin: 0 auto;
+   
+  }
 }
+.swiper-button-prev{
+  left: 0;
+}
+.swiper-button-next{
+  right: 0;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+  height: 16px;
+  bottom: 8px;
+}
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  transition: all .3s linear;
+}
+.swiper-pagination-bullet-active {
+  transform: scale(1.3);
+  background: $ac;
+}
+
 .slide {
   width: 100%;
   position: relative;
   overflow: hidden;
+  transition: all .4s linear;
+  &::after {
+    position: absolute;
+    content:'';
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($ac, .3);
+    z-index: 100;
+  }
+
   &__before {
     position: absolute;
     height: 100%;
@@ -62,39 +111,42 @@
     top: 0;
     left: 50%;
     height: 100%;
-    width: 4px;
+    width: 3px;
     background: white;
     touch-action: pan-y;
     &::after, &::before {
       
 
-      content: "";
+      content: url('../icons/arrow.svg');
 
     
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       
-      width: 60px;
-      height: 60px;
+     
+      
+      width: 30px;
+      height: 30px;
+      z-index: 300;
   
     }
     &::before {
-      content: url('../icons/double-arrow.svg');
-      display: flex;
-      align-items: center;
-      justify-content: center;
-     
-    
-      z-index: 3;
+     right: 1rem;
+     transform: translateY(-50%) rotate(180deg);
     }
     &::after {
-      background: $color;
-      border-radius: 50%;
-      border: 3px solid white;
-      z-index: 2;
+   
+ 
+      left: 1rem;
+      transform: translateY(-50%);
 
     }
+  }
+}
+.swiper-slide-active.slide {
+  &::after {
+  
+    content: none;
+   
   }
 }
