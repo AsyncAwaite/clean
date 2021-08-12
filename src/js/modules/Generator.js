@@ -1,5 +1,38 @@
-const beforeAfter = function (){
-  const slider = document.querySelector('.swiper-slide-active');
+export default class Generator {
+  constructor({ container = null, activeClass = null }) {
+    try {
+      this.container = document.querySelectorAll(container); // Контейнер для фотографий. 
+      this.activeClass = activeClass;
+      this.wrapper = document.querySelector(".aa1")
+      
+    } catch (e) {}
+  }
+  renderEl() {
+    this.container.forEach((item) => {
+      const images = item.querySelectorAll("img");
+      const fragment = document.createDocumentFragment();
+      const beforeEl = document.createElement("div");
+      const afterEl = document.createElement("div");
+      const resizerEl = document.createElement("div");
+      beforeEl.classList.add("slide__before");
+      beforeEl.appendChild(images[0]);
+      afterEl.classList.add("slide__after");
+      afterEl.appendChild(images[1]);
+      resizerEl.classList.add("slide__resizer");
+      fragment.appendChild(beforeEl);
+      fragment.appendChild(afterEl);
+      fragment.appendChild(resizerEl);
+      item.appendChild(fragment);     
+    });
+  }
+  init() {
+    this.renderEl();
+   
+  }
+  change() {
+    
+  /*
+    const slider = document.querySelector('.swiper-slide-active');
   
   const before = slider.querySelector('.slide__before');
 
@@ -82,6 +115,26 @@ const beforeAfter = function (){
   
   
  
-};
 
-export default beforeAfter;
+  */
+     
+
+  // slides.forEach(slide => {
+  //   const images = slide.querySelectorAll('img');
+  //   const fragment = document.createDocumentFragment();
+  //   const beforeEl = document.createElement('div');
+  //   beforeEl.classList.add('slide__before');
+  //   beforeEl.appendChild(images[0]);
+  //   const after = document.createElement('div');
+  //   after.classList.add('slide__after');
+  //   after.appendChild(images[1]);
+  //   const Elresizer = document.createElement('div');
+  //   Elresizer.classList.add('slide__resizer');
+  //   fragment.appendChild(beforeEl);
+  //   fragment.appendChild(after);
+  //   fragment.appendChild(Elresizer);
+  //   slide.appendChild(fragment);
+
+  //  })
+}
+}

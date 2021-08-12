@@ -91,6 +91,11 @@
   .slider {
     max-width: 550px;
   }
+  .why {
+    &__wrapper {
+      width: 100%;
+    }
+  }
 }
 @media (max-width: 700px) {
   .item-price {
@@ -152,6 +157,7 @@
       line-height: 2.2rem;
       text-align: center;
       color: $fc;
+      font-weight: 300;
     }
   }
   .btn {
@@ -232,6 +238,26 @@
     width: 2.5rem;
     &::after {
       font-size: 1.5rem;
+    }
+  }
+  .why {
+    .section__title {
+      margin-bottom: 3rem;
+    }
+    &__wrapper {
+      flex-direction: column;
+    }
+    &__item {
+      margin-bottom: 2rem;
+      &:last-child {
+        margin-bottom: 2rem;
+      }
+    }
+    &__descr {
+      padding-right: 0;
+    }
+    &__img {
+      min-height: 30rem;
     }
   }
 

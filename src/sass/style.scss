@@ -21,9 +21,11 @@ a {
 
 html {
   font-size: 10px;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   margin: 0;
   font-size: 1.4rem;
   line-height: 1.6rem;
@@ -62,6 +64,7 @@ h6 {
 
 
 
+
 @import "blocks/header";
 @import "blocks/menu";
 @import "blocks/burg";
@@ -73,5 +76,7 @@ h6 {
 @import "blocks/advanteges-item";
 @import "blocks/item-price";
 @import "blocks/slider";
+@import "blocks/why";
+@import "blocks/reviews";
 
 @import "blocks/media";

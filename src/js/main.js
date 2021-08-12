@@ -2,15 +2,30 @@
 'use strict';
 import priceCards from './modules/priceCards'
 import generateSlide from './modules/generateSlide';
-import Myslider from './modules/slider';  
+import {gallerySlider, reviews} from './modules/slider';  
 import beforeAfter from './modules/beforeAfter';
+import Generator from './modules/Generator'
 
 
 
 window.addEventListener('DOMContentLoaded', function() {
     priceCards();
-    generateSlide();
-    Myslider();
+    // generateSlide();
+    // gallerySlider();
+    // beforeAfter();
+    reviews();
+    const newSleder = new Generator ({
+        container: '.reviews__foto',
+        activeClass: '.swiper-slide-active'
+        
+    });
+    newSleder.init();
+    newSleder.change();
+    const slide = new Generator ({
+        container: '.slide'
+    })
+    slide.init()
+    gallerySlider();
     beforeAfter();
     const next = document.querySelector('.swiper-button-next');
     const prev = document.querySelector('.swiper-button-prev');
