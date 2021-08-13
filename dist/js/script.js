@@ -13273,368 +13273,61 @@ module.exports = g;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_priceCards__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/priceCards */ "./src/js/modules/priceCards.js");
-/* harmony import */ var _modules_generateSlide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/generateSlide */ "./src/js/modules/generateSlide.js");
-/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
-/* harmony import */ var _modules_beforeAfter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/beforeAfter */ "./src/js/modules/beforeAfter.js");
-/* harmony import */ var _modules_Generator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/Generator */ "./src/js/modules/Generator.js");
+/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
+/* harmony import */ var _modules_omparison__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Сomparison */ "./src/js/modules/Сomparison.js");
 
 
 
 
 
-
-
-window.addEventListener('DOMContentLoaded', function () {
-  Object(_modules_priceCards__WEBPACK_IMPORTED_MODULE_0__["default"])(); // generateSlide();
-  // gallerySlider();
-  // beforeAfter();
-
-  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_2__["reviews"])();
-  var newSleder = new _modules_Generator__WEBPACK_IMPORTED_MODULE_4__["default"]({
-    container: '.reviews__foto',
-    activeClass: '.swiper-slide-active'
+window.addEventListener("DOMContentLoaded", function () {
+  Object(_modules_priceCards__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_1__["reviews"])();
+  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_1__["gallerySlider"])();
+  var reviewsСomparison = new _modules_omparison__WEBPACK_IMPORTED_MODULE_2__["default"]({
+    parent: ".reviews__foto"
   });
-  newSleder.init();
-  newSleder.change();
-  var slide = new _modules_Generator__WEBPACK_IMPORTED_MODULE_4__["default"]({
-    container: '.slide'
+  var slideСomparison = new _modules_omparison__WEBPACK_IMPORTED_MODULE_2__["default"]({
+    parent: ".slide"
   });
-  slide.init();
-  Object(_modules_slider__WEBPACK_IMPORTED_MODULE_2__["gallerySlider"])();
-  Object(_modules_beforeAfter__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  var next = document.querySelector('.swiper-button-next');
-  var prev = document.querySelector('.swiper-button-prev');
-  next.addEventListener('click', _modules_beforeAfter__WEBPACK_IMPORTED_MODULE_3__["default"]);
-  prev.addEventListener('click', _modules_beforeAfter__WEBPACK_IMPORTED_MODULE_3__["default"]);
-  var burger = document.querySelector('.burger');
-  var menu = document.querySelector('.menu');
-  var header = document.querySelector('.header');
-  var headerNav = header.querySelector('.header__nav');
-  var social = document.querySelector('.social');
+  var newi = new _modules_omparison__WEBPACK_IMPORTED_MODULE_2__["default"]({
+    parent: ".item_rev"
+  });
+  reviewsСomparison.init();
+  slideСomparison.init();
+  newi.init();
+  var burger = document.querySelector(".burger");
+  var menu = document.querySelector(".menu");
+  var header = document.querySelector(".header");
+  var headerNav = header.querySelector(".header__nav");
+  var social = document.querySelector(".social");
   var inst = social.lastChild;
-  var promo = document.querySelector('.promo');
+  var promo = document.querySelector(".promo");
   var screenSize700 = window.matchMedia("(max-width: 576px)");
-  window.addEventListener('resize', resize(screenSize700));
+  window.addEventListener("resize", resize(screenSize700));
 
   function resize(size) {
     if (size.matches) {
       inst.remove();
       var fragment = document.createDocumentFragment();
-      var workingTime = document.createElement('div');
-      workingTime.classList.add('menu__work-time');
-      workingTime.textContent = 'ежедневно с 9:00 до 21:00';
+      var workingTime = document.createElement("div");
+      workingTime.classList.add("menu__work-time");
+      workingTime.textContent = "ежедневно с 9:00 до 21:00";
       fragment.appendChild(workingTime);
       fragment.appendChild(inst);
       menu.appendChild(fragment);
-      var promoText = document.createElement('div');
-      promoText.classList.add('promo__text');
-      promoText.innerHTML = 'Компания Double Clean предлагает профессиональные услуги химчистки диванов и&nbsp;другой мягкой мебели с&nbsp;выездом к&nbsp;заказчику на&nbsp;дом или в&nbsp;офис.';
+      var promoText = document.createElement("div");
+      promoText.classList.add("promo__text");
+      promoText.innerHTML = "Компания Double Clean предлагает профессиональные услуги химчистки диванов и&nbsp;другой мягкой мебели с&nbsp;выездом к&nbsp;заказчику на&nbsp;дом или в&nbsp;офис.";
       promo.appendChild(promoText);
     }
   }
 
-  burger.addEventListener('click', function () {
-    burger.classList.toggle('burger-opened');
-    menu.classList.toggle('menu-active');
+  burger.addEventListener("click", function () {
+    burger.classList.toggle("burger-opened");
+    menu.classList.toggle("menu-active");
   });
 });
-
-/***/ }),
-
-/***/ "./src/js/modules/Generator.js":
-/*!*************************************!*\
-  !*** ./src/js/modules/Generator.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Generator; });
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Generator = /*#__PURE__*/function () {
-  function Generator(_ref) {
-    var _ref$container = _ref.container,
-        container = _ref$container === void 0 ? null : _ref$container,
-        _ref$activeClass = _ref.activeClass,
-        activeClass = _ref$activeClass === void 0 ? null : _ref$activeClass;
-
-    _classCallCheck(this, Generator);
-
-    try {
-      this.container = document.querySelectorAll(container); // Контейнер для фотографий. 
-
-      this.activeClass = activeClass;
-      this.wrapper = document.querySelector(".aa1");
-    } catch (e) {}
-  }
-
-  _createClass(Generator, [{
-    key: "renderEl",
-    value: function renderEl() {
-      this.container.forEach(function (item) {
-        var images = item.querySelectorAll("img");
-        var fragment = document.createDocumentFragment();
-        var beforeEl = document.createElement("div");
-        var afterEl = document.createElement("div");
-        var resizerEl = document.createElement("div");
-        beforeEl.classList.add("slide__before");
-        beforeEl.appendChild(images[0]);
-        afterEl.classList.add("slide__after");
-        afterEl.appendChild(images[1]);
-        resizerEl.classList.add("slide__resizer");
-        fragment.appendChild(beforeEl);
-        fragment.appendChild(afterEl);
-        fragment.appendChild(resizerEl);
-        item.appendChild(fragment);
-      });
-    }
-  }, {
-    key: "init",
-    value: function init() {
-      this.renderEl();
-    }
-  }, {
-    key: "change",
-    value: function change() {
-      /*
-        const slider = document.querySelector('.swiper-slide-active');
-      
-      const before = slider.querySelector('.slide__before');
-        const beforeImage = before.querySelector('img');
-      const resizer = slider.querySelector('.slide__resizer');
-      let active = false;
-      document.addEventListener("DOMContentLoaded", function() {
-          let width = slider.offsetWidth; 
-          beforeImage.style.width = width + 'px';
-      });
-                
-          resizer.addEventListener('mousedown',function(){
-            active = true;
-          resizer.classList.add('resize');
-          
-          });
-          
-          document.body.addEventListener('mouseup',function(){
-            active = false;
-          resizer.classList.remove('resize');
-          });
-          
-          document.body.addEventListener('mouseleave', function() {
-            active = false;
-            resizer.classList.remove('resize');
-          });
-          
-          document.body.addEventListener('mousemove',function(e){
-            if (!active) return;
-            let x = e.pageX;
-            x -= slider.getBoundingClientRect().left;
-            slideIt(x);
-            pauseEvent(e);
-          });
-          
-          resizer.addEventListener('touchstart',function(){
-            active = true;
-            resizer.classList.add('resize');
-          });
-          
-          document.body.addEventListener('touchend',function(){
-            active = false;
-            resizer.classList.remove('resize');
-          });
-          
-          document.body.addEventListener('touchcancel',function(){
-            active = false;
-            resizer.classList.remove('resize');
-          });
-          
-          //calculation for dragging on touch devices
-          document.body.addEventListener('touchmove',function(e){
-            if (!active) return;
-            let x;
-            
-            let i;
-            for (i=0; i < e.changedTouches.length; i++) {
-            x = e.changedTouches[i].pageX; 
-            }
-            
-            x -= slider.getBoundingClientRect().left;
-            slideIt(x);
-            pauseEvent(e);
-          });
-          
-          function slideIt(x){
-              let transform = Math.max(0,(Math.min(x,slider.offsetWidth)));
-              before.style.width = transform+"px";
-              resizer.style.left = transform-0+"px";
-          }
-          
-          //stop divs being selected.
-          function pauseEvent(e){
-              if(e.stopPropagation) e.stopPropagation();
-              if(e.preventDefault) e.preventDefault();
-              e.cancelBubble=true;
-              e.returnValue=false;
-              return false;
-          }
-      
-      
-      
-        */
-      // slides.forEach(slide => {
-      //   const images = slide.querySelectorAll('img');
-      //   const fragment = document.createDocumentFragment();
-      //   const beforeEl = document.createElement('div');
-      //   beforeEl.classList.add('slide__before');
-      //   beforeEl.appendChild(images[0]);
-      //   const after = document.createElement('div');
-      //   after.classList.add('slide__after');
-      //   after.appendChild(images[1]);
-      //   const Elresizer = document.createElement('div');
-      //   Elresizer.classList.add('slide__resizer');
-      //   fragment.appendChild(beforeEl);
-      //   fragment.appendChild(after);
-      //   fragment.appendChild(Elresizer);
-      //   slide.appendChild(fragment);
-      //  })
-    }
-  }]);
-
-  return Generator;
-}();
-
-
-
-/***/ }),
-
-/***/ "./src/js/modules/beforeAfter.js":
-/*!***************************************!*\
-  !*** ./src/js/modules/beforeAfter.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var beforeAfter = function beforeAfter() {
-  var slider = document.querySelector('.swiper-slide-active');
-  var before = slider.querySelector('.slide__before');
-  var beforeImage = before.querySelector('img');
-  var resizer = slider.querySelector('.slide__resizer');
-  var active = false;
-  document.addEventListener("DOMContentLoaded", function () {
-    var width = slider.offsetWidth;
-    beforeImage.style.width = width + 'px';
-  });
-  resizer.addEventListener('mousedown', function () {
-    active = true;
-    resizer.classList.add('resize');
-  });
-  document.body.addEventListener('mouseup', function () {
-    active = false;
-    resizer.classList.remove('resize');
-  });
-  document.body.addEventListener('mouseleave', function () {
-    active = false;
-    resizer.classList.remove('resize');
-  });
-  document.body.addEventListener('mousemove', function (e) {
-    if (!active) return;
-    var x = e.pageX;
-    x -= slider.getBoundingClientRect().left;
-    slideIt(x);
-    pauseEvent(e);
-  });
-  resizer.addEventListener('touchstart', function () {
-    active = true;
-    resizer.classList.add('resize');
-  });
-  document.body.addEventListener('touchend', function () {
-    active = false;
-    resizer.classList.remove('resize');
-  });
-  document.body.addEventListener('touchcancel', function () {
-    active = false;
-    resizer.classList.remove('resize');
-  }); //calculation for dragging on touch devices
-
-  document.body.addEventListener('touchmove', function (e) {
-    if (!active) return;
-    var x;
-    var i;
-
-    for (i = 0; i < e.changedTouches.length; i++) {
-      x = e.changedTouches[i].pageX;
-    }
-
-    x -= slider.getBoundingClientRect().left;
-    slideIt(x);
-    pauseEvent(e);
-  });
-
-  function slideIt(x) {
-    var transform = Math.max(0, Math.min(x, slider.offsetWidth));
-    before.style.width = transform + "px";
-    resizer.style.left = transform - 0 + "px";
-  } //stop divs being selected.
-
-
-  function pauseEvent(e) {
-    if (e.stopPropagation) e.stopPropagation();
-    if (e.preventDefault) e.preventDefault();
-    e.cancelBubble = true;
-    e.returnValue = false;
-    return false;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (beforeAfter);
-
-/***/ }),
-
-/***/ "./src/js/modules/generateSlide.js":
-/*!*****************************************!*\
-  !*** ./src/js/modules/generateSlide.js ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var generateSlide = function generateSlide() {
-  var slides = document.querySelectorAll('.slide');
-  slides.forEach(function (slide) {
-    var images = slide.querySelectorAll('img');
-    var fragment = document.createDocumentFragment();
-    var beforeEl = document.createElement('div');
-    beforeEl.classList.add('slide__before');
-    beforeEl.appendChild(images[0]);
-    var after = document.createElement('div');
-    after.classList.add('slide__after');
-    after.appendChild(images[1]);
-    var Elresizer = document.createElement('div');
-    Elresizer.classList.add('slide__resizer');
-    fragment.appendChild(beforeEl);
-    fragment.appendChild(after);
-    fragment.appendChild(Elresizer);
-    slide.appendChild(fragment);
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (generateSlide);
 
 /***/ }),
 
@@ -13717,6 +13410,7 @@ var reviews = function reviews() {
     slidesPerView: 1,
     effect: "fade",
     loop: true,
+    autoHeight: true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
@@ -13727,6 +13421,142 @@ var reviews = function reviews() {
     }
   });
 };
+
+
+
+/***/ }),
+
+/***/ "./src/js/modules/Сomparison.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/Сomparison.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Сomparison; });
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each.js */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each_js__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Сomparison = /*#__PURE__*/function () {
+  function Сomparison(_ref) {
+    var parent = _ref.parent;
+
+    _classCallCheck(this, Сomparison);
+
+    this.parent = document.querySelectorAll(parent); // Родительский єлемент для фотографий.
+  }
+
+  _createClass(Сomparison, [{
+    key: "renderEl",
+    value: function renderEl() {
+      this.parent.forEach(function (item) {
+        var images = item.querySelectorAll("img");
+        var fragment = document.createDocumentFragment();
+        var beforeEl = document.createElement("div");
+        var afterEl = document.createElement("div");
+        var resizerEl = document.createElement("div");
+        beforeEl.classList.add("slide__before");
+        beforeEl.appendChild(images[0]);
+        afterEl.classList.add("slide__after");
+        afterEl.appendChild(images[1]);
+        resizerEl.classList.add("slide__resizer");
+        fragment.appendChild(beforeEl);
+        fragment.appendChild(afterEl);
+        fragment.appendChild(resizerEl);
+        item.appendChild(fragment);
+      });
+    }
+  }, {
+    key: "init",
+    value: function init() {
+      this.renderEl();
+      this.change();
+    }
+  }, {
+    key: "change",
+    value: function change() {
+      this.parent.forEach(function (item) {
+        var before = item.querySelector(".slide__before");
+        var beforeImage = item.firstElementChild.querySelector('img');
+        var resizer = item.querySelector(".slide__resizer");
+        var active = false;
+        document.addEventListener("DOMContentLoaded", function () {
+          var width = item.offsetWidth;
+          beforeImage.style.width = width + "px";
+        });
+        resizer.addEventListener("mousedown", function () {
+          active = true;
+          resizer.classList.add("resize");
+        });
+        document.body.addEventListener("mouseup", function () {
+          active = false;
+          resizer.classList.remove("resize");
+        });
+        document.body.addEventListener("mouseleave", function () {
+          active = false;
+          resizer.classList.remove("resize");
+        });
+        document.body.addEventListener("mousemove", function (e) {
+          if (!active) return;
+          var x = e.pageX;
+          x -= item.getBoundingClientRect().left;
+          slideIt(x);
+          pauseEvent(e);
+        });
+        resizer.addEventListener("touchstart", function () {
+          active = true;
+          resizer.classList.add("resize");
+        });
+        document.body.addEventListener("touchend", function () {
+          active = false;
+          resizer.classList.remove("resize");
+        });
+        document.body.addEventListener("touchcancel", function () {
+          active = false;
+          resizer.classList.remove("resize");
+        });
+        document.body.addEventListener("touchmove", function (e) {
+          if (!active) return;
+          var x;
+          var i;
+
+          for (i = 0; i < e.changedTouches.length; i++) {
+            x = e.changedTouches[i].pageX;
+          }
+
+          x -= item.getBoundingClientRect().left;
+          slideIt(x);
+          pauseEvent(e);
+        });
+
+        function slideIt(x) {
+          var transform = Math.max(0, Math.min(x, item.offsetWidth));
+          before.style.width = transform + "px";
+          resizer.style.left = transform - 0 + "px";
+        }
+
+        function pauseEvent(e) {
+          if (e.stopPropagation) e.stopPropagation();
+          if (e.preventDefault) e.preventDefault();
+          e.cancelBubble = true;
+          e.returnValue = false;
+          return false;
+        }
+      });
+    }
+  }]);
+
+  return Сomparison;
+}();
 
 
 

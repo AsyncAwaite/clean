@@ -29,6 +29,7 @@ const reviews = function ()  {
     slidesPerView: 1,
     effect: "fade",
     loop: true,
+    autoHeight: true,
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",

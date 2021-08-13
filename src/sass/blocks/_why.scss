@@ -4,19 +4,17 @@
   }
   &__wrapper {
     display: flex;
-   
+
     width: 80%;
 
     margin: 0 auto;
   }
   &__descr {
-
     flex: 1 1 auto;
     padding-right: 3rem;
-   
+ 
     flex-direction: column;
     justify-content: space-between;
-
   }
   &__img {
     flex: 0 0 45%;
@@ -31,9 +29,7 @@
       position: absolute;
       top: 0;
       left: 0;
-     
     }
-
   }
   &__item {
     margin-bottom: 3rem;
