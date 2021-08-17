@@ -21,7 +21,7 @@
   font-size: size(22, 16);
   line-height: size(22, 16);
   font-weight: 700;
-  min-height: rem;
+  text-align: center;
   justify-content: center;
   align-items: center;
   
@@ -49,6 +49,10 @@
     &::before{
       animation: none;
     }
+  }
+  &__form {
+   margin: 0 0 2rem 0;
+    white-space: nowrap;
   }
 
    

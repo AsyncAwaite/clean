@@ -1,0 +1,41 @@
+.contact {
+  display: flex;
+  justify-content: center;
+  
+  &__descr {
+    margin-right: 4rem;
+    
+
+  }
+  &__descr-title {
+    font-size: size(32, 20);
+    line-height: size(34, 22);
+    color: $ac;
+    margin-bottom: 3rem;
+    
+  }
+  &__list {
+    font-size: size(20, 18);
+    font-size: size(22, 20);
+    list-style: none;
+    li {
+      margin-bottom: 3rem;
+      padding-left: 3rem;
+      font-weight: 300;
+      color: $fc;
+      position: relative;
+      &::before {
+        content: '';
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: $ac;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+       
+      }
+    }
+  }
+}

@@ -2,6 +2,8 @@
 import priceCards from "./modules/priceCards";
 import { gallerySlider, reviews } from "./modules/slider";
 import Сomparison from "./modules/Сomparison";
+import Form from "./modules/forms";
+
 
 window.addEventListener("DOMContentLoaded", function () {
   priceCards();
@@ -15,12 +17,11 @@ window.addEventListener("DOMContentLoaded", function () {
     parent: ".slide",
   });
 
-  const newi = new Сomparison ({
-    parent: ".item_rev",
-  })
+  
   reviewsСomparison.init();
   slideСomparison.init();
-  newi.init();
+  new Form('form').init();
+
 
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".menu");

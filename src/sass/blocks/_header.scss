@@ -9,24 +9,4 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: rgba(#000, 0.2) 0px 1px 3px;
-  &__logo {
-    display: block;
-    max-width: 100%;
-    img {
-      max-width: 200px;
-      object-fit: cover;
-      display: block;
-    }
-  }
-  &__tel {
-    display: inline-block;
-    line-height: 27px;
-    font-size: size(20, 18);
-    font-weight: bold;
-    transition: color .6s linear;
-    &:hover {
-      color: $ac;
-    }
-  }
-
 }

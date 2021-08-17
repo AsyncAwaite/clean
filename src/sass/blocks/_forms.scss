@@ -1,0 +1,47 @@
+.form {
+  width: 32rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    font-size: size(24, 18);
+    line-height: size(26, 20);
+    margin-bottom: 2rem;
+    text-align: center;
+    color: $color;
+  }
+  &__block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+  &__input, &__textarea {
+    border: 1px solid $fc;
+    width: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
+    outline: none;
+    color: $fc;
+    text-transform: capitalize;
+    &:focus, &:active {
+      border-color: $ac;
+    }
+  }
+
+  &__textarea {
+    text-transform: none;
+    resize: "none";
+  }
+  &__policy {
+    font-weight: 300;
+    color: $fc;
+    text-align: center;
+  }
+  &__message {
+    margin-bottom: 2rem;
+  }
+}

@@ -9,10 +9,12 @@
       transition: fill 0.4s linear;
       &:hover {
         fill: $ac;
-
-
       }
-
+    }
+  }
+  &_footer {
+    svg {
+      fill: white;
     }
   }
 }

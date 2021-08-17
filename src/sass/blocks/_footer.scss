@@ -1,0 +1,24 @@
+.footer {
+  background-color: $fc;
+  padding: 3rem 0;
+  color: #fff;
+  &__main {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__info {
+    margin-top: auto;
+  }
+  &__list {
+    list-style: none;
+    &-link {
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      color: #fff;
+    }
+  }
+  &__contact-title {
+    font-size: size(20, 18);
+    margin-bottom: 2rem;
+  }
+}
