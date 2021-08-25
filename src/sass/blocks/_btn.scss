@@ -5,7 +5,7 @@
   
 
   cursor: pointer;
-  background: #ff7547;
+  background: #202020;
   display: inline-flex;
   transition: all 0.2s ease-in-out;
   position: relative;
@@ -44,7 +44,7 @@
     }
   &:hover {
     
-    background: darken(#ff7547, 5);
+    background: darken(#202020, 5);
     box-shadow: rgba(#000, .2) 0 3px 5px;
     &::before{
       animation: none;

@@ -1,8 +1,10 @@
 .header {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
-  position: sticky;
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;

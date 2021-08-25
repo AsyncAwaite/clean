@@ -31,6 +31,9 @@ body {
   line-height: 1.6rem;
   font-weight: normal;
   color: $fc;
+  &.active{
+    overflow-y: hidden;
+  }
   // background:red;
 }
 h1,
@@ -51,7 +54,7 @@ h6 {
   display: block;
   max-width: 100%;
   img {
-    max-width: 200px;
+    max-width: 130px;
     object-fit: cover;
     display: block;
   }

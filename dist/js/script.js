@@ -16645,6 +16645,7 @@ window.addEventListener("DOMContentLoaded", function () {
   reviewsСomparison.init();
   slideСomparison.init();
   new _modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"]('form').init();
+  var body = document.querySelector('body');
   var burger = document.querySelector(".burger");
   var menu = document.querySelector(".menu");
   var header = document.querySelector(".header");
@@ -16675,6 +16676,7 @@ window.addEventListener("DOMContentLoaded", function () {
   burger.addEventListener("click", function () {
     burger.classList.toggle("burger-opened");
     menu.classList.toggle("menu-active");
+    body.classList.toggle('active');
   });
 });
 

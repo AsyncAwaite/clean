@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", function () {
   slideСomparison.init();
   new Form('form').init();
 
-
+  const body = document.querySelector('body');
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".menu");
   const header = document.querySelector(".header");
@@ -55,5 +55,7 @@ window.addEventListener("DOMContentLoaded", function () {
   burger.addEventListener("click", () => {
     burger.classList.toggle("burger-opened");
     menu.classList.toggle("menu-active");
+    body.classList.toggle('active')
+
   });
 });
