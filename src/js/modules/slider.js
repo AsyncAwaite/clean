@@ -6,6 +6,7 @@ const gallerySlider = function () {
   const swiper = new Swiper(".slider__main", {
     slidesPerView: 1,
     spaceBetween: 20,
+    // autoHeight: true,
     
     loop: true,
     centeredSlides: true,

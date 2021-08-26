@@ -62,5 +62,6 @@ window.addEventListener("DOMContentLoaded", function () {
   });
   AOS.init({
     duration: 1200,
+    // disable: true
   });
 });

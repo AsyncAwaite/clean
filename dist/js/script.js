@@ -16737,7 +16737,8 @@ window.addEventListener("DOMContentLoaded", function () {
     body.classList.toggle('active');
   });
   aos__WEBPACK_IMPORTED_MODULE_4___default.a.init({
-    duration: 1200
+    duration: 1200 // disable: true
+
   });
 });
 
@@ -16988,6 +16989,7 @@ var gallerySlider = function gallerySlider() {
   var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".slider__main", {
     slidesPerView: 1,
     spaceBetween: 20,
+    // autoHeight: true,
     loop: true,
     centeredSlides: true,
     initialSlide: 2,
