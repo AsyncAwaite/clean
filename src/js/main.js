@@ -3,6 +3,8 @@ import priceCards from "./modules/priceCards";
 import { gallerySlider, reviews } from "./modules/slider";
 import Сomparison from "./modules/Сomparison";
 import Form from "./modules/forms";
+import AOS from "aos";
+
 
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -47,7 +49,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const promoText = document.createElement("div");
       promoText.classList.add("promo__text");
       promoText.innerHTML =
-        "Компания Double Clean предлагает профессиональные услуги химчистки диванов и&nbsp;другой мягкой мебели с&nbsp;выездом к&nbsp;заказчику на&nbsp;дом или в&nbsp;офис.";
+        "Компания CHISTO Panda предлагает профессиональные услуги химчистки диванов и&nbsp;другой мягкой мебели с&nbsp;выездом к&nbsp;заказчику на&nbsp;дом или в&nbsp;офис.";
       promo.appendChild(promoText);
     }
   }
@@ -57,5 +59,8 @@ window.addEventListener("DOMContentLoaded", function () {
     menu.classList.toggle("menu-active");
     body.classList.toggle('active')
 
+  });
+  AOS.init({
+    duration: 1200,
   });
 });

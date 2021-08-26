@@ -9,13 +9,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.27.5",
-    "core-js": "^3.4.2",
+    "core-js": "^3.16.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-clean-css": "^4.3.0",
@@ -23,9 +23,9 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.2.0",
     "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.1.1",
     "webpack": "^4.41.2",
-    "webpack-stream": "^5.2.1",
-    "gulp-sass": "^4.1.1"
+    "webpack-stream": "^5.2.1"
   },
   "browserslist": [
     "last 1 version",
@@ -34,6 +34,8 @@
     "not dead"
   ],
   "dependencies": {
-    "swiper": "^6.8.0"
+    "animate.css": "^4.1.1",
+    "aos": "^3.0.0-beta.6",
+    "swiper": "^6.8.4"
   }
 }
