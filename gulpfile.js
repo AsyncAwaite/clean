@@ -9,7 +9,7 @@ const imagemin = require("gulp-imagemin");
 const htmlmin = require("gulp-htmlmin");
 const webpack = require("webpack-stream");
 const dist = "./dist/";
-// const dist = "C:/MAMP/htdocs/test"; 
+// const dist = "C:/MAMP/htdocs/test";
 
 gulp.task("server", function () {
   browserSync({
@@ -32,6 +32,7 @@ gulp.task("styles", function () {
     .pipe(browserSync.stream());
 });
 
+
 gulp.task("watch", function () {
   gulp.watch("src/sass/**/*.+(scss|sass|css)", gulp.parallel("styles"));
   gulp.watch("src/*.html").on("change", gulp.parallel("html"));
@@ -39,7 +40,7 @@ gulp.task("watch", function () {
   gulp.watch("src/fonts/**/*").on("all", gulp.parallel("fonts"));
   gulp.watch("src/icons/**/*").on("all", gulp.parallel("icons"));
   gulp.watch("src/img/**/*").on("all", gulp.parallel("images"));
-  gulp.watch("./src/assets/**/*.*", gulp.parallel("copy-assets"));
+  gulp.watch("src/assets/**/*.*", gulp.parallel("copy-assets"));
 });
 
 gulp.task("html", function () {
@@ -47,13 +48,6 @@ gulp.task("html", function () {
     .src("src/*.html")
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(dist));
-});
-
-gulp.task("copy-assets", () => {
-  return gulp
-    .src("./src/assets/**/*.*")
-    .pipe(gulp.dest(dist + "/assets"))
-    .on("end", browserSync.reload);
 });
 
 // gulp.task('scripts', function () {
@@ -122,6 +116,13 @@ gulp.task("images", function () {
     .pipe(imagemin())
     .pipe(gulp.dest(dist + "/img"))
     .pipe(browserSync.stream());
+});
+
+gulp.task("copy-assets", () => {
+  return gulp
+    .src("src/assets/**/*.*")
+    .pipe(gulp.dest(dist + "/assets"))
+    .on("end", browserSync.reload);
 });
 
 gulp.task(

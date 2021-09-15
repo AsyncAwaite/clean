@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
   &__title {
     font-size: size(24, 18);
     line-height: size(26, 20);
@@ -16,8 +17,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     width: 100%;
+    position: relative;
+    &:last-child {
+      
+      .form__message {
+        order: 3;
+        height: 3rem;
+      }
+    }
+   
   }
   &__input, &__textarea {
     border: 1px solid $fc;
@@ -29,6 +39,18 @@
     text-transform: capitalize;
     &:focus, &:active {
       border-color: $ac;
+    }
+    &.valid {
+      border-color: rgb(6, 139, 1);
+      position: relative;
+      span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+      }
+ 
+   
     }
   }
 
@@ -42,6 +64,14 @@
     text-align: center;
   }
   &__message {
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    height: 2rem;
+    text-align: center;
+    color: rgba($color: #ff0000, $alpha: 0.6);
+    &_ok {
+      color: rgb(6, 139, 1);
+    }
   }
+
 }

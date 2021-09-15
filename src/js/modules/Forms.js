@@ -1,3 +1,4 @@
+import IMask from "imask";
 export default class Form {
   constructor(forms) {
     this.forms = document.querySelectorAll(forms);
@@ -8,67 +9,68 @@ export default class Form {
       success: "Спасибо! Скоро мы с вами свяжемся!",
       failure: "Что-то пошло не так...",
     };
-    this.path = "./assets/question.php";
+    this.path = "./assets/telegramBot.php";
+    this.req = {
+      phone: false,
+      name: false,
+    };
   }
 
   clearInputs() {
     this.inputs.forEach((item) => {
       item.value = "";
+      item.classList.remove("valid");
+      this.req.phone = false;
+      this.req.name = false;
+      item.nextElementSibling.textContent = '';
     });
     this.textarea.forEach((item) => {
       item.value = "";
     });
   }
-
-  initMask() {
-    let setCursorPosition = (pos, elem) => {
-      elem.focus();
-
-      if (elem.setSelectionRange) {
-        elem.setSelectionRange(pos, pos);
-      } else if (elem.createTextRange) {
-        let range = elem.createTextRange();
-
-        range.collapse(true);
-        range.moveEnd("character", pos);
-        range.moveStart("character", pos);
-        range.select();
-      }
+  createMask(input) {
+    let maskOptions = {
+      mask: "+38 (000) 000 - 00 - 00",
+      lazy: false,
     };
+    let mask = new IMask(input, maskOptions);
+  }
 
-    function createMask(event) {
-      let matrix = "+38 (___) ___-__-__",
-        i = 0,
-        def = matrix.replace(/\D/g, ""),
-        val = this.value.replace(/\D/g, "");
-
-      if (def.length >= val.length) {
-        val = def;
-      }
-
-      this.value = matrix.replace(/./g, function (a) {
-        return /[_\d]/.test(a) && i < val.length
-          ? val.charAt(i++)
-          : i >= val.length
-          ? ""
-          : a;
-      });
-
-      if (event.type === "blur") {
-        if (this.value.length == 2) {
-          this.value = "";
-        }
-      } else {
-        setCursorPosition(this.value.length, this);
-      }
-    }
-
-    let inputs = document.querySelectorAll('[name="phone"]');
-
+  checkNameInputs() {
+    let inputs = document.querySelectorAll('[name="name"]');
     inputs.forEach((input) => {
-      input.addEventListener("input", createMask);
-      input.addEventListener("focus", createMask);
-      input.addEventListener("blur", createMask);
+      input.addEventListener('keypress', function(e) {
+        if (e.key.match(/[\d]/ig)) {
+            e.preventDefault();
+        }
+    });
+      input.addEventListener("input", () => {
+        if (input.value.length > 2) {
+          input.classList.add("valid");
+          input.nextElementSibling.textContent = "";
+          this.req.name = true;
+        } else {
+          input.classList.remove("valid");
+          input.nextElementSibling.textContent = "Введите Ваше имя";
+        }
+      });
+    });
+  }
+  checkPhoneInputs() {
+    let inputs = document.querySelectorAll('[name="phone"]');
+    inputs.forEach((input) => {
+      this.createMask(input);
+      input.addEventListener("input", () => {
+        if (input.value.indexOf("_") === -1) {
+          input.classList.add("valid");
+          input.nextElementSibling.textContent = "";
+          this.req.phone = true;
+        } else {
+          input.classList.remove("valid");
+          input.nextElementSibling.textContent =
+            "Введите номер согласно шаблона";
+        }
+      });
     });
   }
 
@@ -77,43 +79,55 @@ export default class Form {
       method: "POST",
       body: data,
     });
-
     return await res.text();
   }
 
   init() {
-    this.initMask();
-
+    this.checkPhoneInputs();
+    this.checkNameInputs();
     this.forms.forEach((item) => {
       item.addEventListener("submit", (e) => {
+        const btn = item.querySelector(".btn__form");
+        let statusMessage = btn.nextElementSibling;
         e.preventDefault();
+        if (this.req.phone && this.req.name) {
+          statusMessage.textContent = this.message.loading;
+          const formData = new FormData(item);
+          this.postData(this.path, formData)
+            .then((res) => {
+              console.log(res);
+              statusMessage.classList.add("form__message_ok");
+              statusMessage.textContent = this.message.success;
+            })
+            .catch(() => {
+              statusMessage.textContent = this.message.failure;
+            })
+            .finally(() => {
+              this.clearInputs();
 
-        let statusMessage = document.createElement("div");
-        statusMessage.style.cssText = `
-                  margin-top: 15px;
-                  font-size: 18px;
-                  color: grey;
-              `;
-        item.parentNode.appendChild(statusMessage);
-
-        statusMessage.textContent = this.message.loading;
-
-        const formData = new FormData(item);
-
-        this.postData(this.path, formData)
-          .then((res) => {
-            console.log(res);
-            statusMessage.textContent = this.message.success;
-          })
-          .catch(() => {
-            statusMessage.textContent = this.message.failure;
-          });
-        // .finally(() => {
-        //     this.clearInputs();
-        //     setTimeout(() => {
-        //         statusMessage.remove();
-        //     }, 6000);
-        // });
+              setTimeout(() => {
+                statusMessage.classList.remove("form__message_ok");
+                statusMessage.textContent = "";
+              }, 5000);
+            });
+        } else {
+          if (!this.req.phone && !this.req.name) {
+            statusMessage.textContent = `пожалуйста заполните номер телефона и Ваше имя`;
+            setTimeout(() => {
+              statusMessage.textContent = "";
+            }, 5000);
+          } else if (!this.req.name) {
+            statusMessage.textContent = `введите Ваше имя`;
+            setTimeout(() => {
+              statusMessage.textContent = "";
+            }, 5000);
+          } else {
+            statusMessage.textContent = `пожалуйста заполните номер телефона`;
+            setTimeout(() => {
+              statusMessage.textContent = "";
+            }, 5000);
+          }
+        }
       });
     });
   }

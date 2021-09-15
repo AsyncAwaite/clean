@@ -43,7 +43,6 @@
       img {
         max-width: 100px;
       }
-
     }
     &__contacts {
       display: flex;
@@ -75,7 +74,6 @@
     &-active {
       top: 120px;
     }
- 
   }
 
   .burger {
@@ -157,8 +155,7 @@
 @media (max-width: 576px) {
   .header {
     padding: 1rem;
- 
-    
+
     &__contacts {
       flex-direction: column;
     }
@@ -315,13 +312,23 @@
       margin-right: 0;
     }
   }
+  .popup {
+    &__form {
+      padding: 2rem;
+      .form__block {
+       &:last-child {
+         padding-bottom: 1rem;
+       } 
+      }
+    }
+  }
 }
 @media (max-width: 350px) {
   .reviews__wrapper {
     max-width: 300px;
   }
   .form {
-    width: 30rem;
+    width: 26rem;
   }
 }
 @media (max-width: 320px) {

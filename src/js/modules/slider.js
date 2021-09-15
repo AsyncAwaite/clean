@@ -1,13 +1,10 @@
-import Swiper, { EffectFade, Scrollbar } from "swiper";
-import SwiperCore, { Navigation, Pagination} from "swiper/core";
-SwiperCore.use([Navigation, Pagination, EffectFade]);
+import Swiper, { EffectFade } from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper/core";
+SwiperCore.use([Navigation, Pagination, EffectFade, ]);
 const gallerySlider = function () {
-  
   const swiper = new Swiper(".slider__main", {
     slidesPerView: 1,
     spaceBetween: 20,
-    // autoHeight: true,
-    
     loop: true,
     centeredSlides: true,
     initialSlide: 2,
@@ -23,9 +20,8 @@ const gallerySlider = function () {
     },
     centeredSlidesBounds: true,
   });
- 
 };
-const reviews = function ()  {
+const reviews = function () {
   const reviews = new Swiper(".reviews__items", {
     slidesPerView: 1,
     effect: "fade",
@@ -36,11 +32,9 @@ const reviews = function ()  {
       prevEl: ".swiper-button-prev",
     },
     scrollbar: {
-      el: '.swiper-scrollbar',
+      el: ".swiper-scrollbar",
       draggable: true,
     },
-  
-
   });
 };
-export {gallerySlider, reviews}
+export { gallerySlider, reviews };

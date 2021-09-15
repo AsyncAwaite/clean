@@ -4,13 +4,15 @@ import { gallerySlider, reviews } from "./modules/slider";
 import Сomparison from "./modules/Сomparison";
 import Form from "./modules/forms";
 import AOS from "aos";
-
-
+import scrollToAnchor from "./modules/scrollToAnchor";
+import popups from "./modules/popups";
 
 window.addEventListener("DOMContentLoaded", function () {
   priceCards();
   reviews();
   gallerySlider();
+  scrollToAnchor();
+  popups();
   const reviewsСomparison = new Сomparison({
     parent: ".reviews__foto",
   });
@@ -19,12 +21,11 @@ window.addEventListener("DOMContentLoaded", function () {
     parent: ".slide",
   });
 
-  
   reviewsСomparison.init();
   slideСomparison.init();
-  new Form('form').init();
+  new Form("form").init();
 
-  const body = document.querySelector('body');
+  const body = document.querySelector("body");
   const burger = document.querySelector(".burger");
   const menu = document.querySelector(".menu");
   const header = document.querySelector(".header");
@@ -57,8 +58,7 @@ window.addEventListener("DOMContentLoaded", function () {
   burger.addEventListener("click", () => {
     burger.classList.toggle("burger-opened");
     menu.classList.toggle("menu-active");
-    body.classList.toggle('active')
-
+    body.classList.toggle("active");
   });
   AOS.init({
     duration: 1200,

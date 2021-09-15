@@ -131,10 +131,11 @@
     width: 3px;
     background: white;
     touch-action: pan-y;
+    cursor: col-resize;
     &::after,
     &::before {
       content: url("../icons/arrow.svg");
-
+      cursor: col-resize;
       position: absolute;
       top: 50%;
 
